@@ -18,15 +18,9 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'Just Another Text Editor'
-      }),
-
-      new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'src-sw.js',
+        title: 'Just Another Text Editor',
       }),
 
       new WebpackPwaManifest({
@@ -45,6 +39,11 @@ module.exports = () => {
             destination: path.join('assets', 'icons'),
           },
         ],
+      }),
+
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js',
       }),
     ],
 
